@@ -1,0 +1,9 @@
+<% provide(:page_title, 'All posts') %>
+<% provide(:blog_active, 'active') %>
+
+<div class="row">
+  <%= render @posts %>
+</div>  
+<div class="digg_pagination ">  
+  <%= will_paginate @posts %>
+</div>

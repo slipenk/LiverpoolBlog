@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm  navbar-light"
+style="background-color: #FD321A;">
+  <div class='container'>
+    <a class='navbar-brand' href='/'>
+      Liverpool<span class='light'>blog</span>
+    </a>
+    <ul class="navbar-nav float-sm-right">
+      <li class="nav-item" >
+        <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)} " %>
+      </li>
+      <% if salah_signed_in? %>
+      <li class="nav-item">
+          <%= link_to 'My posts', author_posts_path, class: "nav-link #{yield(:author)}" %>
+      </li>
+      <li class="nav-item">
+          <%= link_to 'Logout', destroy_salah_session_path, method: :delete ,class: "nav-link" %>
+      </li>
+      <% else %>
+      <% if request.original_url.split('/').last != 'sign_in' %>
+       <li class="nav-item" >
+        
+        <%= link_to 'Sign in', 'salahs/sign_in', class: "nav-link " %>
+      </li>
+      <% end %>
+       <% end %>
+    </ul>
+  </div>
+</nav>
